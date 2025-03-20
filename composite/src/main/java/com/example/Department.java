@@ -40,12 +40,7 @@ public class Department {
 
         // Looping through the Sub Departments employees
         for (Department department:departments) {
-
-            List<Employee> employees = department.getEmployees();
-
-            for (Employee employee:employees) {
-                totalSalary += employee.getSalary();
-            }
+            totalSalary += department.getTotalSalary();
         }
         
         return totalSalary;
@@ -65,11 +60,6 @@ public class Department {
         }
 
         return departmentElement;
-    }
-
-    // Returning the list of Employees
-    public List<Employee> getEmployees() {
-        return employees;
     }
 
     public void deleteDepartment(Department department) {

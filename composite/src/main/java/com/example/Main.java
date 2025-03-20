@@ -25,13 +25,14 @@ public class Main {
 
         // Adding Departments within a Department
         marketing.addDepartment(marketingFeature);
-        marketing.addDepartment(marketingTools);
+        marketingFeature.addDepartment(marketingTools);
 
         // Adding the employees into Departments
         hr.addEmployee(pavel);
         hr.addEmployee(ivan);
         marketingFeature.addEmployee(saed);
         billing.addEmployee(viet);
+        marketingTools.addEmployee(pavel);
 
         // Before removing the Department
         double totalSalaryBefore = autoMobile.getTotalSalary();

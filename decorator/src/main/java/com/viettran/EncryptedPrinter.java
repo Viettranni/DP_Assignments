@@ -2,25 +2,22 @@ package com.viettran;
 
 import org.jasypt.util.text.BasicTextEncryptor;
 
-public class EncryptedPrinter implements Printer {
+public class EncryptedPrinter extends PrinterDecorator {
     BasicTextEncryptor textEncryptor = new BasicTextEncryptor();
 
-    private Printer printer;
+    // private Printer printer;
     private String encryptedMessage;
 
     public EncryptedPrinter(Printer printer) {
-        this.printer = printer;
-
-        textEncryptor.setPassword("My Secret Password");
+        super(printer);
+        textEncryptor.setPassword("Spiderman");
     }
 
     public void print(String message) {
         encryptedMessage = textEncryptor.encrypt(message);
-        printer.print(encryptedMessage);
-    }
-
-    public void decryptPrint() {
+        super.print(encryptedMessage);
+        System.out.println("Also Decrypted message: ");
         String decryptedMessage = textEncryptor.decrypt(encryptedMessage);
-        printer.print(decryptedMessage);
+        super.print(decryptedMessage);
     }
 }

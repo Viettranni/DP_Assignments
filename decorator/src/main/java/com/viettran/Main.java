@@ -10,8 +10,6 @@ public class Main {
         EncryptedPrinter encryptedPrinter = new EncryptedPrinter(basicPrinter);
         System.out.println("Printing encrypted message: ");
         encryptedPrinter.print("Hello Vieeet!");
-        System.out.println("Decrypting that message: ");
-        encryptedPrinter.decryptPrint();
 
         System.out.println();
 
@@ -26,6 +24,5 @@ public class Main {
         EncryptedPrinter printer2 = new EncryptedPrinter(new XMLPrinter(new BasicPrinter()));
         System.out.println("Wrapping the printer into two other wrappers: ");
         printer2.print("Hello World! My name is Vieeet");
-        printer2.decryptPrint();
     }
 }

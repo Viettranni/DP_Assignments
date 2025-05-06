@@ -1,13 +1,16 @@
 package com.viettran;
 
+import java.util.Iterator;
+
 public class Main {
     public static void main(String[] args) {
-        int numberOfFibs = 10; 
+        int numbers = 10;
 
-        Sequence fibSeq = new FibonacciSequence(numberOfFibs);
+        FibonacciSequence fibonacciSequence = new FibonacciSequence(numbers);
+        Iterator<Integer> iterator = fibonacciSequence.iterator();
 
-        for (int num : fibSeq) {  
-            System.out.println(num);
+        while (iterator.hasNext()) {
+            System.out.println(iterator.next());
         }
     }
 }

@@ -6,31 +6,26 @@ import java.util.Iterator;
 // Keeping the state here ensures that multiple iterations form the same sequence is independent of each other.
 
 public class FibonacciIterator implements Iterator<Integer> {
-    private int count;
-    private int currentIndex = 1;
-    private int prev = 0;
-    private int curr = 1;
+    private final FibonacciSequence sq;
+    private int current;
 
-    public FibonacciIterator(int count) {
-        this.count = count;
+    public FibonacciIterator(FibonacciSequence sq) {
+        this.sq = sq;
+        current = 1;
     }
 
     @Override
     public boolean hasNext() {
-        return currentIndex < count;
+        return current <= sq.getN();
     }
 
     @Override
     public Integer next() {
-        currentIndex++;
-
-        if (currentIndex == 1 ) {
-            return 1;
+        if (hasNext()) {
+            int result = sq.generateFibonacci(current);
+            current++;
+            return result;
         }
-
-        int next = prev + curr;
-        prev = curr;
-        curr = next;
-        return prev;
+        return null;
     }
 }
